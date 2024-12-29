@@ -1,0 +1,25 @@
+.nav-button {
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-button:hover {
+    transform: scale(1.1);
+    color: #ffcc00; /* Example hover color */
+}
+
+.resume-button {
+    color: #ff0000; /* Different color for Resume button */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.resume-button:hover {
+    transform: scale(1.1);
+    color: #ffcc00; /* Example hover color */
+}
