@@ -2,27 +2,49 @@ import React from "react";
 import HomeContent from "./SectionContent/HomeContent";
 import AboutContent from "./SectionContent/AboutContent";
 import ProjectsContent from "./SectionContent/ProjectSection";
+import CertificatesContent from "./SectionContent/CertificatesContent";
+import ExperienceContent from "./SectionContent/ExperienceContent";
+import ActivitiesContent from "./SectionContent/ActivitiesContent";
+import DesignsContent from "./SectionContent/DesignContent";
+import BlogContent from "./SectionContent/BlogContent";
+import TechStacksContent from "./SectionContent/TechStackContent";
+import CodingProfilesContent from "./SectionContent/CodingProfilesContent";
 
-export default function MainContent({ activeSection }) {
+export default function MainContent({ isExpanded, activeSection }) {
     const renderSection = () => {
         switch (activeSection) {
             case "home":
-                return <HomeContent />;
+                return <HomeContent PageTitle={"Home"} />;
             case "about":
-                return <AboutContent />;
+                return <AboutContent PageTitle={"About"} />;
             case "projects":
-                return <ProjectsContent />;
+                return <ProjectsContent PageTitle={"Projects"} />;
+            case "certificates":
+                return <CertificatesContent PageTitle={"Certificates"} />;
+            case "experience":
+                return <ExperienceContent PageTitle={"Experience"} />;
+            case "activities":
+                return <ActivitiesContent PageTitle={"Activities"} />;
+            case "designs":
+                return <DesignsContent PageTitle={"Designs"} />;
+            case "blogs":
+                return <BlogContent PageTitle={"Blogs"} />;
+            case "tech-stacks":
+                return <TechStacksContent PageTitle={"Tech Stacks"} />;
+            case "coding-profiles":
+                return <CodingProfilesContent PageTitle={"Coding Profiles"} />;
             default:
                 return <HomeContent />;
         }
     };
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-50">
-            <div className="max-w-4xl w-full p-8">
-                <div className="backdrop-blur-md bg-white/10 p-8 rounded-2xl pointer-events-auto transition-opacity duration-500">
-                    {renderSection()}
-                </div>
+        <div
+            id="parent"
+            className={`bg-neutral-950 dark:bg-neutral-950 text-white mt-40 mb-20 ${isExpanded ? "ml-64 mr-64" : "ml-20 mr-60"}`}
+        >
+            <div id="child" className="overflow-y-auto">
+                {renderSection()}
             </div>
         </div>
     );

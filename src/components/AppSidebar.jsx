@@ -25,7 +25,7 @@ import {
 } from "react-icons/fi";
 import { ScrollArea } from "./ui/scroll-area";
 
-export default function AppSidebar({ isExpanded }) {
+export default function AppSidebar({ isExpanded, onSectionSelect }) {
     const menuItems = [
         { id: "home", label: "Explore", icon: <FiHome className="text-2xl" />, number: 0 },
         { id: "experience", label: "Experience", icon: <FiAward className="text-2xl" />, number: 1 },
@@ -53,7 +53,10 @@ export default function AppSidebar({ isExpanded }) {
     const renderMenuItem = (item) => (
         <SidebarMenuItem key={item.id}>
             <SidebarMenuButton asChild>
-                <button className="flex justify-between items-center w-full p-5">
+                <button 
+                    className="flex justify-between items-center w-full p-5"
+                    onClick={() => onSectionSelect(item.id)}
+                >
 
                     <div className="flex items-center gap-3">
                         {item.icon}
@@ -93,7 +96,7 @@ export default function AppSidebar({ isExpanded }) {
 
     return (
         <Sidebar
-            className={`fixed top-0 left-0 h-full bg-gray-100 dark:bg-gray-900 shadow-lg transition-all duration-300 ${isExpanded ? "w-64" : "w-35"
+            className={`top-0 left-0 h-full bg-gray-100 dark:bg-gray-900 shadow-lg transition-all duration-300 ${isExpanded ? "w-64" : "w-35"
                 }`}
         >
             <SidebarHeader>

@@ -1,12 +1,13 @@
 import React from "react";
 
-export default function HomeContent() {
+export default function HomeContent(PageTitle) {
     return (
-        <div>
-            <h1 className="text-6xl font-bold text-white">ASHUTOSH SHARMA</h1>
-            <h2 className="text-4xl font-light text-yellow-400">
-                Developer + Designer
-            </h2>
+        <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-50">
+            <div className="max-w-4xl w-full p-8">
+                <div className="backdrop-blur-md bg-white/10 p-8 rounded-2xl pointer-events-auto transition-opacity duration-500">
+                    <span className="text-5xl">Ashutosh Sharma</span>
+                </div>
+            </div>
         </div>
     );
 }
