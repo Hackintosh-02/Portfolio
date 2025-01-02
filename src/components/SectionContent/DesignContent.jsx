@@ -32,16 +32,16 @@ const designs = [
 export default function DesignsContent() {
     return (
         <div className="h-full w-full rounded-lg overflow-y-auto">
-            <h1 className="text-6xl font-bold text-white">Designs</h1>
-            <h2 className="text-2xl font-light text-yellow-400 mt-4">
+            <h1 className="text-4xl font-bold text-card dark:text-foreground">Designs</h1>
+            <h2 className="text-xl font-light text-secondary dark:text-secondary-dark mt-4">
                 Explore my UI/UX designs
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
                 {designs.map((design) => (
-                    <Card 
-                        key={design.id} 
-                        className="bg-gray-900/50 border border-gray-800 text-white hover:border-gray-700 transition-all duration-300"
+                    <Card
+                        key={design.id}
+                        className="bg-muted-foreground dark:bg-third text-card dark:text-foreground shadow-lg hover:shadow-xl transition-shadow"
                     >
                         <CardHeader>
                             <div className="relative">
@@ -52,20 +52,20 @@ export default function DesignsContent() {
                                 />
                             </div>
                             <div className="mt-4">
-                                <CardTitle className="text-xl font-bold tracking-tight">
+                                <CardTitle className="text-lg font-bold dark:text-xl-dark">
                                     {design.name}
                                 </CardTitle>
                             </div>
                         </CardHeader>
                         <CardContent>
-                            <p className="text-gray-300 text-sm mb-4">
+                            <p className="text-muted-foreground dark:text-muted-foreground-dark text-sm mb-4">
                                 {design.description}
                             </p>
                             <div className="flex flex-wrap gap-2">
                                 {design.tools.map((tool, index) => (
                                     <span 
                                         key={index} 
-                                        className="bg-gray-800 text-gray-200 px-2 py-1 rounded text-xs"
+                                        className="bg-muted dark:bg-muted-dark text-muted-foreground dark:text-muted-foreground-dark px-2 py-1 rounded text-xs"
                                     >
                                         {tool}
                                     </span>
@@ -77,7 +77,7 @@ export default function DesignsContent() {
                                 <Button
                                     variant="ghost"
                                     size="sm"
-                                    className="text-gray-300 hover:text-white hover:bg-gray-800"
+                                    className="text-muted-foreground dark:text-muted-foreground-dark hover:text-foreground hover:bg-muted dark:hover:bg-muted-dark"
                                     asChild
                                 >
                                     <a 

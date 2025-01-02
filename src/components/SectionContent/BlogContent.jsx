@@ -29,8 +29,8 @@ const blogs = [
 export default function BlogContent() {
     return (
         <div className="h-full w-full rounded-lg overflow-y-auto">
-            <h1 className="text-6xl font-bold text-white">Blogs</h1>
-            <h2 className="text-2xl font-light text-yellow-400 mt-4">
+            <h1 className="text-4xl font-bold text-card dark:text-foreground">Blogs</h1>
+            <h2 className="text-xl font-light text-secondary dark:text-secondary-dark mt-4">
                 Explore my writings and insights
             </h2>
 
@@ -38,7 +38,7 @@ export default function BlogContent() {
                 {blogs.map((blog) => (
                     <Card 
                         key={blog.id} 
-                        className="bg-gray-900/50 border border-gray-800 text-white hover:border-gray-700 transition-all duration-300"
+                        className="bg-muted-foreground dark:bg-third text-card dark:text-foreground shadow-lg hover:shadow-xl transition-shadow"
                     >
                         <CardHeader>
                             <div className="relative">
@@ -49,13 +49,13 @@ export default function BlogContent() {
                                 />
                             </div>
                             <div className="mt-4">
-                                <CardTitle className="text-xl font-bold tracking-tight">
+                                <CardTitle className="text-xl font-bold dark:text-xl-dark">
                                     {blog.name}
                                 </CardTitle>
                             </div>
                         </CardHeader>
                         <CardContent>
-                            <p className="text-gray-300 text-sm mb-4">
+                            <p className="text-base text-muted-foreground dark:text-muted-foreground-dark mb-4">
                                 {blog.description}
                             </p>
                         </CardContent>
@@ -64,7 +64,7 @@ export default function BlogContent() {
                                 <Button
                                     variant="ghost"
                                     size="sm"
-                                    className="text-gray-300 hover:text-white hover:bg-gray-800"
+                                    className="text-muted-foreground dark:text-muted-foreground-dark hover:text-foreground hover:bg-muted dark:hover:bg-muted-dark"
                                     asChild
                                 >
                                     <a 

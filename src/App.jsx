@@ -34,7 +34,7 @@ export default function App() {
 
     return (
         <SidebarProvider>
-            <main className="h-screen w-full bg-black relative overflow-hidden dark:bg-gray-900">
+            <main className="h-screen w-full dark:bg-background bg-foreground text-card relative overflow-hidden dark:text-white">
                 {/* 3D Canvas */}
                 {activeSection === "home" && (
                     <Canvas className="fixed inset-0 z-0">
@@ -51,10 +51,11 @@ export default function App() {
                 )}
 
                 {/* UI Layer */}
-                <div className="relative z-10 flex h-full bg-neutral-950 overflow-hidden">
+                <div className="relative z-10 flex h-full overflow-hidde dark:bg-background">
                     {/* Sidebar */}
                     <AppSidebar
                         isExpanded={isSidebarExpanded}
+                        activeSection={activeSection}
                         onSectionSelect={setActiveSection}
                     />
 
@@ -64,7 +65,7 @@ export default function App() {
                         size="icon"
                         onClick={() => setIsSidebarExpanded(!isSidebarExpanded)}
                         className={`fixed top-4 ${isSidebarExpanded ? "left-[246px]" : "left-[86px]"
-                            } z-50 text-black dark:text-black hover:bg-white/20 hover:scale-105 transition-all duration-300`}
+                            } z-50 text-card dark:text-card hover:bg-primary transition-all duration-300`}
                     >
                         {isSidebarExpanded ? (
                             <FiChevronLeft className="h-6 w-6 transform transition-transform duration-300" />
@@ -75,15 +76,16 @@ export default function App() {
                     </Button>
 
                     {/* Main Content */}
-                    <ScrollArea className="w-full bg-neutral-950 text-white overflow-hidden">
+                    <ScrollArea className="w-full bg-foreground text-card overflow-hidden dark:bg-background dark:text-white">
                         <div
                             className="transition-all duration-300 flex-1 overflow-y-auto h-full"
                         >
                             <Navbar onToggleTheme={toggleTheme} isDarkMode={isDarkMode} />
                             <MainContent
-                                className="bg-neutral-950 text-white"
+                                className="bg-background text-foreground"
                                 isExpanded={isSidebarExpanded}
                                 activeSection={activeSection}
+                                isDarkMode={isDarkMode}
                             />
                             {activeSection === "home" && <Footer className="bottom-0" />}
                         </div>

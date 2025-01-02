@@ -9,6 +9,7 @@ import DesignsContent from "./SectionContent/DesignContent";
 import BlogContent from "./SectionContent/BlogContent";
 import TechStacksContent from "./SectionContent/TechStackContent";
 import CodingProfilesContent from "./SectionContent/CodingProfilesContent";
+import ContactContent from "./SectionContent/ContactContent";
 
 export default function MainContent({ isExpanded, activeSection }) {
     const renderSection = () => {
@@ -33,6 +34,8 @@ export default function MainContent({ isExpanded, activeSection }) {
                 return <TechStacksContent PageTitle={"Tech Stacks"} />;
             case "coding-profiles":
                 return <CodingProfilesContent PageTitle={"Coding Profiles"} />;
+            case "contact":
+                return <ContactContent PageTitle={"Contact"} />;
             default:
                 return <HomeContent />;
         }
@@ -41,7 +44,7 @@ export default function MainContent({ isExpanded, activeSection }) {
     return (
         <div
             id="parent"
-            className={`bg-neutral-950 dark:bg-neutral-950 text-white mt-40 mb-20 ${isExpanded ? "ml-64 mr-64" : "ml-20 mr-60"}`}
+            className={`bg-foreground dark:bg-background mt-40 mb-20 ${isExpanded ? "ml-64 mr-64" : "ml-20 mr-60"}`}
         >
             <div id="child" className="overflow-y-auto">
                 {renderSection()}

@@ -1,9 +1,10 @@
+
 import React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Cross2Icon, DownloadIcon } from "@radix-ui/react-icons";
+import { FiLink } from "react-icons/fi";
 import { Button } from "./ui/button";
-
-export default function ResumeModal({ resumeUrl }) {
+export default function ResumeModal({ resumeUrl,driveUrl }) {
     return (
         <Dialog.Root>
             {/* Trigger Button */}
@@ -42,7 +43,7 @@ export default function ResumeModal({ resumeUrl }) {
                     <Dialog.Close asChild>
                         <button
                             aria-label="Close"
-                            className="absolute top-4 -right-16 w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 text-gray-500 hover:text-gray-800 dark:hover:text-white shadow-lg z-50"
+                            className="absolute top-4 -right-16 w-10 h-10 flex items-center justify-center rounded-full bg-foreground dark:bg-background text-card dark:text-primary shadow-lg z-50"
                         >
                             <Cross2Icon />
                         </button>
@@ -53,9 +54,19 @@ export default function ResumeModal({ resumeUrl }) {
                         href={resumeUrl}
                         download
                         aria-label="Download"
-                        className="absolute top-16 -right-16 w-10 h-10 flex items-center justify-center rounded-full bg-yellow-400 text-white hover:bg-yellow-500 shadow-lg z-50"
+                        className="absolute top-16 -right-16 w-10 h-10 flex items-center justify-center rounded-full bg-primary text-card hover:bg-primary shadow-lg z-50"
                     >
                         <DownloadIcon />
+                    </a>
+                    {/* Google Drive Link Button */}
+                    <a
+                        href={driveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Open in Google Drive"
+                        className="absolute top-28 -right-16 w-10 h-10 flex items-center justify-center rounded-full bg-primary text-card hover:bg-primary shadow-lg z-50"
+                    >
+                        <FiLink />
                     </a>
                 </Dialog.Content>
             </Dialog.Portal>

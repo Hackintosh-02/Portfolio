@@ -54,29 +54,29 @@ const projects = [
 
 export default function ProjectsContent() {
     return (
-        <div className="h-full w-full dark: rounded-lg overflow-y-auto">
-            <h1 className="text-6xl font-bold text-white">Projects</h1>
-            <h2 className="text-2xl font-light text-yellow-400 mt-4">
+        <div className="h-full w-full rounded-lg overflow-y-auto">
+            <h1 className="text-6xl font-bold text-card dark:text-foreground">Projects</h1>
+            <h2 className="text-2xl font-light text-secondary dark:text-secondary-dark mt-4">
                 Explore my recent work
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
                 {projects.map((project) => (
-                    <Card 
-                        key={project.id} 
-                        className="bg-gray-900/50 border border-gray-800 text-white hover:border-gray-700 transition-all duration-300"
+                    <Card
+                        key={project.id}
+                        className="bg-muted-foreground dark:bg-third text-card dark:text-foreground shadow-lg hover:shadow-xl transition-shadow"
                     >
                         <CardHeader>
                             <div className="space-y-4">
-                                <CardTitle className="text-xl font-bold tracking-tight">
+                                <CardTitle className="text-2xl font-bold dark:text-xl-dark">
                                     {project.name}
                                 </CardTitle>
                                 <div className="flex flex-wrap gap-2">
                                     {project.techStack.map((tech, index) => (
-                                        <Badge 
-                                            key={index} 
+                                        <Badge
+                                            key={index}
                                             variant="secondary"
-                                            className="bg-gray-800 text-gray-200 hover:bg-gray-700"
+                                            className="text-base bg-muted dark:bg-muted-dark text-muted-foreground dark:text-muted-foreground-dark"
                                         >
                                             {tech}
                                         </Badge>
@@ -85,10 +85,10 @@ export default function ProjectsContent() {
                             </div>
                         </CardHeader>
                         <CardContent>
-                            <ul className="space-y-2 text-gray-300 text-sm">
+                            <ul className="space-y-2 text-border dark:text-muted-foreground text-sm">
                                 {project.description.map((point, index) => (
-                                    <li key={index} className="flex items-start">
-                                        <span className="mr-2 text-yellow-400">•</span>
+                                    <li key={index} className="text-base     flex items-start">
+                                        <span className="mr-2 text-secondary dark:text-secondary-dark">•</span>
                                         {point}
                                     </li>
                                 ))}
@@ -99,16 +99,16 @@ export default function ProjectsContent() {
                                 <Button
                                     variant="ghost"
                                     size="sm"
-                                    className="text-gray-300 hover:text-white hover:bg-gray-800"
+                                    className="text-base text-muted dark:text-muted-foreground hover:text-foreground hover:bg-muted dark:hover:bg-muted-dark"
                                     asChild
                                 >
-                                    <a 
-                                        href={project.links.github} 
-                                        target="_blank" 
+                                    <a
+                                        href={project.links.github}
+                                        target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center gap-2"
                                     >
-                                        <FiGithub className="w-4 h-4" />
+                                        <FiGithub className="w-8 h-8" />
                                         <span>Code</span>
                                     </a>
                                 </Button>
@@ -117,12 +117,12 @@ export default function ProjectsContent() {
                                 <Button
                                     variant="ghost"
                                     size="sm"
-                                    className="text-gray-300 hover:text-white hover:bg-gray-800"
+                                    className="text-base text-muted dark:text-muted-foreground hover:text-foreground hover:bg-muted dark:hover:bg-muted-dark"
                                     asChild
                                 >
-                                    <a 
-                                        href={project.links.liveDemo} 
-                                        target="_blank" 
+                                    <a
+                                        href={project.links.liveDemo}
+                                        target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center gap-2"
                                     >
